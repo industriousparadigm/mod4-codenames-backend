@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: one
+  game: one
+  color: MyString
+  position: 1
+
+two:
+  word: two
+  game: two
+  color: MyString
+  position: 1
