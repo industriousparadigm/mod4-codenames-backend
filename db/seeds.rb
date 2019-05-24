@@ -246,10 +246,12 @@ wordList = [
   "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
 ]
 
-# wordList.each { |word|
-#   Word.find_or_create_by(word: word)
-# }
+# wordList.each do |w|
+#   Word.find_or_create_by(word: w)
+# end
 
-Word.all.select { |w|
-  w.word.size > 3 && w.word.size < 11 && w.word[-3..-1] != "ing" && w.word[-3..-1] != "lly"
-}.size
+g = Game.first
+
+Word.random(25,4,10).each do |w|
+  g.words << Word.find_by(word: w)
+end

@@ -14,4 +14,8 @@ class PlayersController < ApplicationController
     render json: "hello"
   end
 
+  def create
+    
+  end
+
 end

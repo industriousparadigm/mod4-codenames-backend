@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   post 'sign_in', to: 'players#sign_in'
   post 'activate', to: 'players#sign_in'
+
+  get 'start', to: 'games#start'
 end

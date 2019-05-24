@@ -11,8 +11,18 @@ class WordsController < ApplicationController
   end
 
   def create
-    word = Word.new(word: params[:word])
     
+  end
+
+  def destroy
+    word = Word.find_by(id: params[:id])
+
+    if word
+      word.destroy
+      render json: { success: "#{word.word} is no more" }
+    else
+      render json: { error: "word not found" }
+    end
   end
 
 end
