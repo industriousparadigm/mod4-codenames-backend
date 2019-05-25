@@ -10,10 +10,6 @@ class WordsController < ApplicationController
     end
   end
 
-  def create
-    
-  end
-
   def destroy
     word = Word.find_by(id: params[:id])
 
@@ -23,6 +19,10 @@ class WordsController < ApplicationController
     else
       render json: { error: "word not found" }
     end
+  end
+
+  def manager
+    render html: '<div>Hello WORLD</div>'.html_safe
   end
 
 end

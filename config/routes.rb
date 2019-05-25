@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post 'activate', to: 'players#sign_in'
 
   get 'start', to: 'games#start'
+
+  get 'wordman', to: 'words#manager'
 end

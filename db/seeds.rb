@@ -246,12 +246,12 @@ wordList = [
   "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
 ]
 
-# wordList.each do |w|
-#   Word.find_or_create_by(word: w)
-# end
-
-g = Game.first
-
-Word.random(25,4,10).each do |w|
-  g.words << Word.find_by(word: w)
+wordList.each do |w|
+  Word.find_or_create_by(word: w)
 end
+
+# g = Game.first
+
+# Word.random(25,4,10).each do |w|
+#   g.words << Word.find_by(word: w)
+# end

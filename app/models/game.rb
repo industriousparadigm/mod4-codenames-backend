@@ -1,8 +1,8 @@
 class Game < ApplicationRecord
   has_many :participations
   has_many :players, through: :participations
-  has_many :game_words
-  has_many :words, through: :game_words
+  has_many :tiles
+  has_many :words, through: :tiles
 
   def self.generate_key
     key = [
@@ -13,6 +13,50 @@ class Game < ApplicationRecord
     ]
     rand < 0.5 ? key << 'b' : key << 'r'
     key.shuffle.join
+  end
+
+  # def add_words
+  #   words = Word.random(25, 4, 10)
+  #   words.each do |w|
+  #     self.words << Word.find_by(word: w)
+  #   end
+  # end
+
+  # def add_colors
+  #   key = Game.generate_key
+  #   self.tiles.map.with_index do |tile, i|
+  #     case key[i]
+  #     when 'r'
+  #       tile.color = "red"
+  #     when 'b'
+  #       tile.color = "blue"
+  #     when 'y'
+  #       tile.color = "yellow"
+  #     when 'a'
+  #       tile.color = "assassin"
+  #     end
+  #     tile.save
+  #   end
+  # end
+
+  def populate_tiles
+    words = Word.random(25, 4, 10)
+    key = Game.generate_key
+    words.each.with_index do |w, i|
+      self.words << Word.find_by(word: w)
+      tile = self.tiles[i]
+      case key[i]
+      when 'r'
+        tile.color = "red"
+      when 'b'
+        tile.color = "blue"
+      when 'y'
+        tile.color = "yellow"
+      when 'a'
+        tile.color = "assassin"
+      end
+      tile.save
+    end
   end
 
   def going_first(key)

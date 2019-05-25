@@ -10,24 +10,19 @@ class GamesController < ApplicationController
     end
   end
 
-  def create
-
-  end
-
-  def update
-    
+  def show
+    game = Game.find_by(id: params[:id])
+    if game
+      render json: game
+    else
+      render json: { error: "no such game"}
+    end
   end
 
   def start
-    game = Game.create
-    game.key = Game.generate_key
-    words = Word.random(25, 4, 10)
-    words.each do |w|
-      game.words << Word.find_by(word: w)
-    end
-
+    game = Game.new
+    game.populate_tiles
     game.save
-    
     render json: game
   end
 

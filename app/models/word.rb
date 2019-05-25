@@ -1,6 +1,6 @@
 class Word < ApplicationRecord
-  has_many :game_words
-  has_many :games, through: :game_words
+  has_many :tiles
+  has_many :games, through: :tiles
 
   def self.random(n = 1, min_len = 0, max_len = 99)
 
