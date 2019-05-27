@@ -15,30 +15,6 @@ class Game < ApplicationRecord
     key.shuffle.join
   end
 
-  # def add_words
-  #   words = Word.random(25, 4, 10)
-  #   words.each do |w|
-  #     self.words << Word.find_by(word: w)
-  #   end
-  # end
-
-  # def add_colors
-  #   key = Game.generate_key
-  #   self.tiles.map.with_index do |tile, i|
-  #     case key[i]
-  #     when 'r'
-  #       tile.color = "red"
-  #     when 'b'
-  #       tile.color = "blue"
-  #     when 'y'
-  #       tile.color = "yellow"
-  #     when 'a'
-  #       tile.color = "assassin"
-  #     end
-  #     tile.save
-  #   end
-  # end
-
   def populate_tiles
     words = Word.random(25, 4, 10)
     key = Game.generate_key
@@ -59,8 +35,8 @@ class Game < ApplicationRecord
     end
   end
 
-  def going_first(key)
-    key.count('b') > key.count('r') ? 'blue' : 'red'
-  end
+  # def going_first
+  #   key.count('b') > key.count('r') ? 'blue' : 'red'
+  # end
 
 end
