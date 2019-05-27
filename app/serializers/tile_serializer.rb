@@ -1,5 +1,5 @@
 class TileSerializer < ActiveModel::Serializer
-  attributes :word, :color
+  attributes :id, :word, :color
 
   def word
     object.word.word

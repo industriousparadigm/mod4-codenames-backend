@@ -10,6 +10,10 @@ class WordsController < ApplicationController
     end
   end
 
+  def show
+    @word = Word.find(params[:id])
+  end
+
   def destroy
     word = Word.find_by(id: params[:id])
 
