@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   get 'start', to: 'games#start'
 
-  get 'wordman', to: 'words#manager'
+  get 'randomword', to: 'words#random'
+
 end

@@ -1,5 +1,5 @@
 class Word < ApplicationRecord
-  has_many :tiles
+  has_many :tiles, dependent: :destroy
   has_many :games, through: :tiles
 
   def self.random(n = 1, min_len = 0, max_len = 99)
@@ -14,5 +14,9 @@ class Word < ApplicationRecord
 
     words = filtered.shuffle[0 .. n - 1]
 
+  end
+
+  def self.export_to_array
+    wordList = Word.all.map { |w| w.word }.sort
   end
 end

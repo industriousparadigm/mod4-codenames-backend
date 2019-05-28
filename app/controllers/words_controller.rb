@@ -14,6 +14,10 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
 
+  def create
+    Word.find_or_create_by(word: params[:word].downcase)
+  end
+
   def destroy
     word = Word.find_by(id: params[:id])
 
@@ -25,8 +29,9 @@ class WordsController < ApplicationController
     end
   end
 
-  def manager
-    render html: '<div>Hello WORLD</div>'.html_safe
+  def random
+    word = Word.find_by(word: Word.random)
+    render json: word
   end
 
 end
