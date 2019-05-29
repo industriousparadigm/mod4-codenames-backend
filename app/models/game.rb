@@ -16,7 +16,7 @@ class Game < ApplicationRecord
   end
 
   def populate_tiles
-    words = Word.random(25, 4, 10)
+    words = Word.random(25, 4, 12)
     key = Game.generate_key
     words.each.with_index do |w, i|
       self.words << Word.find_by(word: w)
