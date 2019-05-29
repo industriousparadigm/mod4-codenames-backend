@@ -12,11 +12,32 @@ class WordsController < ApplicationController
 
   def show
     @word = Word.find(params[:id])
+    render json: @word
   end
 
   def create
     Word.find_or_create_by(word: params[:word].downcase)
   end
+
+  def update
+    word = Word.find_by(id: params[:id])
+    word.update(word: params[:word])
+
+    if word.save
+      render json: word
+    else
+      render json: {error: "can't be updated, sorry! no more useful messages here."}
+    end 
+
+    words = Word.all.filter do |w|
+      w.word == params[:word]
+    end 
+
+    if words.size > 1
+      word.destroy
+    end 
+
+  end 
 
   def destroy
     word = Word.find_by(id: params[:id])
