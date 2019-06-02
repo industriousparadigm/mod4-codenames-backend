@@ -5,7 +5,7 @@
 This project is a digital re-creation of Codenames, a beloved card game at Flatiron School, London campus. It is created as a project for Mod 4 of our learning.
 
 - This repo is for the server side of this project.
-- The repo for frontend is on https://github.com/industriousparadigm/mod4-codenames-backend/.
+- The repo for frontend is on https://github.com/idanceinbetween/mod4-codenames-client-side/.
 
 ## Technical Details
 
